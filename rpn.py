@@ -17,7 +17,12 @@ def calculate(string):
 			value = int(token)
 			stack.append(value)
 		except ValueError: # this must be an operator
-			function = operators[token]
+			try: 
+				
+				function = operator.__dict__[token]
+
+			except KeyError:
+				function = operators[token]
 			arg2 = stack.pop()
 			arg1 = stack.pop()
 			result = function(arg1,arg2)
@@ -25,7 +30,7 @@ def calculate(string):
 		
 	if len(stack) != 1:
 		raise TypeError("malformed input: "+ string)
-
+	print(stack[0])
 	return stack.pop()
 
 def main():
