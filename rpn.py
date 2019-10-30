@@ -7,6 +7,7 @@ operators = {
 	'-': operator.sub,
 	'*': operator.mul,
 	'^': operator.pow,
+	'/': operator.floordiv,
 }
 
 def calculate(string):
