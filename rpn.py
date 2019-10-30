@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
 
-def add(a,b):
-        return a + b
-
-def sub(a,b):
-	return a - b
+import operator
 
 operators = {
-	'+': add,
-	'-': sub,
+	'+': operator.add,
+	'-': operator.sub,
 }
 
 def calculate(string):
@@ -18,7 +14,7 @@ def calculate(string):
 			value = int(token)
 			stack.append(value)
 		except ValueError: # this must be an operator
-			functions = operators(token)
+			function = operators[token]
 			arg2 = stack.pop()
 			arg1 = stack.pop()
 			result = function(arg1,arg2)

@@ -15,3 +15,7 @@ class TestBasics(unittest.TestCase):
 	def test_expo(self):
 		result = rpn.calculate("2 3 ^")
 		self.assertEqual(8,result)
+
+	def test_mul(self):
+		result = rpn.calculate('4 8 *')
+		self.assertEqual(32,result)
